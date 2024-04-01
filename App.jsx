@@ -22,7 +22,7 @@ export default function App() {
             <InputTask text={text} setText={setText} editedText={editedText} handleUpdated={handleUpdated} handleAdd={handleAdd} />
             <ModalTools modalVisible={modalVisible} handleCancel={handleCancel} handleDelete={handleDelete} itemSelected={itemSelected} />
             <FlatList data={textList} renderItem={renderTodos} />
-            { textList.length <= 0 && <Fallback/> }
+            { textList.length <= 0 && <Fallback source={require("./src/img/todolist.webp")}/> }
         </View>
     );
 }
@@ -31,9 +31,9 @@ const styles = StyleSheet.create({
     
     /* AppContainer */
     AppContainer: {
-      marginTop: 50,
-      marginHorizontal: 16,
-      backgroundColor: "#fff", 
-      height: "100%"
+        marginTop: 50,
+        marginHorizontal: 16,
+        backgroundColor: "#fff", 
+        height: "100%"
     },
 });
