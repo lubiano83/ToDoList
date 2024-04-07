@@ -1,7 +1,10 @@
 /* Task */
 
 import { StyleSheet, View, Text } from "react-native";
-import { IconButton } from 'react-native-paper'; // npm install react-native-paper
+import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 const Task = ({handleCheck, handleEdit, handleModal, item}) => {
 
@@ -9,10 +12,10 @@ const Task = ({handleCheck, handleEdit, handleModal, item}) => {
  
     return (
         <View style={styles.renderTodos}>
-            <IconButton icon={item.isFinished ? "check" : "square"} iconColor="#fff" onPress={() => handleCheck(item.id)}/>
+            { !item.isFinished ? <Feather name="square" size={24} color="#fff" onPress={() => handleCheck(item.id)}/> : <AntDesign name="check" size={24} color="#fff" onPress={() => handleCheck(item.id)}/> }
             <Text style={styles.renderTodos__Text}>{item.title}</Text>
-            <IconButton icon="pencil" iconColor='#fff' onPress={() => handleEdit(item)}/>
-            <IconButton icon="tools" iconColor='#fff' onPress={() => handleModal(item)}/>
+            <FontAwesome name="pencil" size={24} color="#fff" onPress={() => handleEdit(item)} />
+            <FontAwesome5 name="tools" size={24} color="#fff" onPress={() => handleModal(item)} />
         </View>
     )
 }; export default Task;
@@ -26,7 +29,9 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         marginBottom: 12,
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        gap: 12,
+        paddingHorizontal: 12,
     },
     renderTodos__Text: {
         color: "#fff",
